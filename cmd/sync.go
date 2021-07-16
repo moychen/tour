@@ -6,7 +6,7 @@ import (
 	"tour/internal/transmit"
 )
 
-const cfgFile = "config/sync.ini"
+const cfgFile = "F:\\Mine\\Bin\\config\\sync.ini"
 
 var syncCmd = &cobra.Command{
 	Use:   "sync",

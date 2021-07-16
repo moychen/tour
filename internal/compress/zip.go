@@ -14,7 +14,7 @@ func Zip(srcDir, dstDir string) (string, error) {
 	srcDir = strings.TrimSuffix(srcDir, "/")
 	zipFileName := filepath.Join(dstDir, filepath.Base(srcDir) + ".zip")
 
-	log.Println("src_dir: ", srcDir, "zip_file: ",  zipFileName, "dst_dir: ", dstDir)
+	log.Println("src_dir: ", srcDir, ", zip_file: ",  zipFileName, ", dst_dir: ", dstDir)
 
 	// 预防：旧文件无法覆盖
 	os.RemoveAll(zipFileName)
