@@ -13,9 +13,24 @@ const (
 )
 
 type TransmitConfig struct {
-	Method		int8	`ini:"method"`
+	Method		int	`ini:"method"`
 	LocalPath	string	`ini:"local_path"`
 	RemotePath	string	`ini:"remote_path"`
+}
+
+// TransferInfo 存放上传或下载的信息
+type TransferInfo struct {
+	Kind         string 	// upload或download
+	Local        string   	// 本地路径
+	Dst          string		// 目标路径
+	TransferByte int64 		// 传输的字节数(byte)
+}
+
+// ExecInfo 存放执行结果的结构体信息
+type ExecInfo struct {
+	Cmd         string
+	Output     	[]byte
+	ExitCode 	int
 }
 
 func Transmit(sshConfig *SSHConfig, transmitConfig *TransmitConfig) {
@@ -23,6 +38,7 @@ func Transmit(sshConfig *SSHConfig, transmitConfig *TransmitConfig) {
 
 	sshClient, err := NewSSHClient(sshConfig)
 	if err != nil {
+		log.Fatal(err.Error())
 		return
 	}
 	defer sshClient.client.Close()

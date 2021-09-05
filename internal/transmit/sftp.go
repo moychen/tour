@@ -9,19 +9,7 @@ import (
 	"os"
 )
 
-// conn 存放连接的结构体
-type conn struct {
-	client	*ssh.Client
-	sftpClient 	*sftp.Client
-}
 
-// TransferInfo 存放上传或下载的信息
-type TransferInfo struct {
-	Kind         string 	// upload或download
-	Local        string   	// 本地路径
-	Dst          string		// 目标路径
-	TransferByte int64 		// 传输的字节数(byte)
-}
 
 func (t *TransferInfo) String()  string {
 	return fmt.Sprintf(`TransferInfo(Kind:"%s", Local: "%s", Dst: "%s", TransferByte: %d)`,

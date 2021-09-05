@@ -3,6 +3,7 @@ package transmit
 import (
 	"errors"
 	"fmt"
+	"github.com/pkg/sftp"
 	"golang.org/x/crypto/ssh"
 	"io/ioutil"
 	"log"
@@ -26,21 +27,20 @@ type SSHConfig struct {
 	Timeout 	time.Duration	`ini:"timeout"`
 }
 
+// conn 存放连接的结构体
+type conn struct {
+	client		*ssh.Client
+	sftpClient 	*sftp.Client
+}
+
 type AuthConfig struct {
 	*ssh.ClientConfig
 	*SSHConfig
 }
 
 type SSHClient struct {
-	client *ssh.Client
-	AuthConfig AuthConfig
-}
-
-// ExecInfo 存放执行结果的结构体信息
-type ExecInfo struct {
-	Cmd         string
-	Output     	[]byte
-	ExitCode 	int
+	client 		*ssh.Client
+	AuthConfig 	AuthConfig
 }
 
 func (e *ExecInfo) String() string {
