@@ -32,7 +32,6 @@ func Exists(path string) bool {
 }
 
 // 判断所给路径是否为文件夹
-
 func IsDir(path string) bool {
 	s, err := os.Stat(path)
 
@@ -45,7 +44,6 @@ func IsDir(path string) bool {
 }
 
 // 判断所给路径是否为文件
-
 func IsFile(path string) bool {
 	return !IsDir(path)
 }

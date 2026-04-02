@@ -19,4 +19,6 @@ func init() {
 	rootCmd.AddCommand(timeCmd)
 	rootCmd.AddCommand(sqlCmd)
 	rootCmd.AddCommand(syncCmd)
+	rootCmd.AddCommand(jsoncCmd)
+	rootCmd.AddCommand(copyCmd)
 }

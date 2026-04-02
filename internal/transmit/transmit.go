@@ -13,29 +13,29 @@ const (
 )
 
 type TransmitConfig struct {
-	Method		int	`ini:"method"`
-	LocalPath	string	`ini:"local_path"`
-	RemotePath	string	`ini:"remote_path"`
+	Method     int    `ini:"method"`
+	LocalPath  string `ini:"local_path"`
+	RemotePath string `ini:"remote_path"`
 }
 
 // TransferInfo 存放上传或下载的信息
 type TransferInfo struct {
-	Kind         string 	// upload或download
-	Local        string   	// 本地路径
-	Dst          string		// 目标路径
-	TransferByte int64 		// 传输的字节数(byte)
+	Kind         string // upload或download
+	Local        string // 本地路径
+	Dst          string // 目标路径
+	TransferByte int64  // 传输的字节数(byte)
 }
 
 // ExecInfo 存放执行结果的结构体信息
 type ExecInfo struct {
-	Cmd         string
-	Output     	[]byte
-	ExitCode 	int
+	Cmd      string
+	Output   []byte
+	ExitCode int
 }
 
 func Transmit(sshConfig *SSHConfig, transmitConfig *TransmitConfig) {
 	log.SetFlags(log.Lshortfile | log.LstdFlags)
-
+	log.Println(sshConfig)
 	sshClient, err := NewSSHClient(sshConfig)
 	if err != nil {
 		log.Fatal(err.Error())
@@ -46,11 +46,11 @@ func Transmit(sshConfig *SSHConfig, transmitConfig *TransmitConfig) {
 	transmitConfig.LocalPath = filepath.FromSlash(transmitConfig.LocalPath)
 	dstDir := strings.TrimSuffix(transmitConfig.LocalPath, "\\")
 
-	compressConfig := &compress.CompressConfig {
-							Method: 1,
-							SrcDir: transmitConfig.LocalPath,
-							DstDir: filepath.Dir(dstDir),
-						}
+	compressConfig := &compress.CompressConfig{
+		Method: 1,
+		SrcDir: transmitConfig.LocalPath,
+		DstDir: filepath.Dir(dstDir),
+	}
 
 	zipFileName, err := compress.Compress(compressConfig)
 	if err != nil {
@@ -74,6 +74,14 @@ func Transmit(sshConfig *SSHConfig, transmitConfig *TransmitConfig) {
 
 	cmd := "unzip -o -d " + filepath.ToSlash(remotePathTmp) + " " + transmitConfig.RemotePath
 	out, err := sshClient.Exec(cmd)
+	if err != nil {
+		log.Println(cmd, out.OutputString(), err.Error())
+		return
+	} else {
+		log.Println(cmd, out.OutputString())
+	}
+
+	sshClient.Exec("cd ~/src;sh makeall")
 	if err != nil {
 		log.Println(cmd, out.OutputString(), err.Error())
 		return

@@ -82,7 +82,7 @@ func (a *AuthConfig) ApplyConfig() error {
 		User: a.SSHConfig.User,
 		Auth: []ssh.AuthMethod{authMethod},
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
-		Timeout: a.SSHConfig.Timeout,
+		Timeout: a.SSHConfig.Timeout*1000000,
 	}
 
 	return nil
