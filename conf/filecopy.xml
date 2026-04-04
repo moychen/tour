@@ -1,32 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <src_path>
-        <root_path>E:\1. Codebase\PB2.0版本\2024版本\V202401.00.000\IS2.0-UFTV202401.00.000\Sources\uft</root_path>
+<src_path>
+    <root_path>E:\1. Codebase\root_path>
         <files>
-            metadata/component.xml
-            metadata/stdfield.stdfield
-            uftatom/ufx/ufxequity/i2frontequity/i2front_stock/module.xml
-            uftbusiness/ufx/ufxequity/i2frontequity/i2front_secu/module.xml
-            uftatom/base/baseaccount/fundinfo/af_fundinfo_branchinfogetbycapitalandbranchcode.uftatomfunction
-            uftatom/base/baseaccount/fundinfo/af_fundinfo_capitalgetbycapitalandbranchcode.uftatomfunction
-            uftatom/base/baseaccount/fundinfo/as_fundinfo_branchinfogetbycapitalandbranchcode.uftatomservice
-            uftatom/base/baseaccount/fundinfo/as_fundinfo_capitalgetbycapitalandbranchcode.uftatomservice
-            uftatom/ufx/ufxequity/i2frontequity/i2front_stock/as_i2frontequity_exchangetypeconverttomarketno.uftatomservice
-            uftatom/ufx/ufxequity/i2frontequity/i2front_stock/as_i2frontequity_marketnoconverttoexchangetype.uftatomservice
-            uftbusiness/ufx/ufxequity/i2frontequity/i2front_secu/lf_i2frontquery_bondstockquery.uftfunction
-            uftbusiness/ufx/ufxequity/i2frontequity/i2front_secu/lf_i2frontquery_hgregisterquery.uftfunction
-            uftbusiness/ufx/ufxequity/i2frontequity/i2front_secu/ls_i2frontequity_bondstockquery.uftservice
-            uftbusiness/ufx/ufxequity/i2frontequity/i2front_secu/ls_i2frontequity_hgregisterquery.uftservice
-            uftbusiness/ufx/ufxequity/i2frontequity/i2frontxyhg
-            uftbusiness/ufx/ufxequity/i2frontequity/i2frontxyhg/lf_i2frontxyhg_shxyhgcontractreceive.uftfunction
-            uftbusiness/ufx/ufxequity/i2frontequity/i2frontxyhg/lf_i2frontxyhg_szxyhgcontractreceive.uftfunction
-            uftbusiness/ufx/ufxequity/i2frontequity/i2frontxyhg/ls_i2frontxyhg_shxyhgcontractreceive.uftservice
-            uftbusiness/ufx/ufxequity/i2frontequity/i2frontxyhg/ls_i2frontxyhg_szxyhgcontractreceive.uftservice
-            uftbusiness/ufx/ufxequity/i2frontequity/i2frontxyhg/module.xml
+
 
         </files>
     </src_path>
     <dest_path>
-        <root_path>E:\1. Codebase\PB2.0版本\I2GateWay\repo\uft</root_path>
+        <root_path>E:\1. Codebase\t</root_path>
         <files></files>
     </dest_path>
 </xml>
