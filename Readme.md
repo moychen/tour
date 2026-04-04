@@ -41,3 +41,18 @@ $ go run main.go time calc -c='2020-07-26' -d=24h
 ```bash
 $ go run main.go word -s=hello -m=1
 ```
+
+## 文件上传
+
+**go run main.go sync -o 地址简写  -t  模块类型**
+
+```
+-o: 服务器配置地址，取自pub_tsyncconfig中module后半部分
+-t: 类型，取自pub_tsyncconfig中module前半部分
+
+同步配置表pub_tsyncconfig中的module值 = 模块类型+地址简写
+```
+
+```bash
+$ go run main.go sync -o 228 -t trade
+```
